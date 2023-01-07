@@ -14,7 +14,7 @@ export class User extends BaseModel {
       properties: {
         id: { type: 'integer' },
         username: { type: 'string', minLength: 5, maxLength: 255 },
-        role: { type: 'enum', minLength: 3, maxLength: 255 },
+        role: { type: 'string' },
       },
     };
   }

@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<void> {
     table.increments('id');
     table.string('username').notNullable();
     table.enu('role', Object.values(RoleEnum)).notNullable();
-    table.timestamps();
+    table.timestamps({ defaultToNow: true, useTimestamps: true });
   });
 }
 
