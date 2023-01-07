@@ -7,4 +7,5 @@ export enum EnvConfigEnum {
   DB_USER = 'DB_USER',
   DB_PASSWORD = 'DB_PASSWORD',
   NODE_ENV = 'NODE_ENV',
+  DB_CLIENT = 'DB_CLIENT',
 }

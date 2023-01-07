@@ -27,6 +27,7 @@ import { AppService } from './service/app.service';
         const database = config.get(EnvConfigEnum.DB_NAME);
         const user = config.get(EnvConfigEnum.DB_USER);
         const password = config.get(EnvConfigEnum.DB_PASSWORD);
+        const client = config.get(EnvConfigEnum.DB_CLIENT);
         const connectionOptions = {
           host,
           port,
@@ -41,7 +42,7 @@ import { AppService } from './service/app.service';
           // https://vincit.github.io/objection.js/#models
           Model: BaseModel,
           config: {
-            client: 'pg',
+            client,
             connection: connectionOptions,
             ...knexSnakeCaseMappers(),
           },
