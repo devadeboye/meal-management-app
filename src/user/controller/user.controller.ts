@@ -1,13 +1,18 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { JoiObjectValidationPipe } from 'src/utils/pipes/validation.pipe';
 import { UserDto } from '../dto/user.dto';
 import { UserService } from '../service/user.service';
+import { createUserValidator } from '../validators/user.validator';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post('add')
-  createUser(@Body() userInformation: UserDto) {
+  createUser(
+    @Body(new JoiObjectValidationPipe(createUserValidator))
+    userInformation: UserDto,
+  ) {
     return this.userService.createUser(userInformation);
   }
 }
