@@ -1,4 +1,10 @@
 export enum EnvConfigEnum {
   PORT = 'PORT',
   CONNECTION_STRING = 'CONNECTION_STRING',
+  DB_HOST = 'DB_HOST',
+  DB_PORT = 'DB_PORT',
+  DB_NAME = 'DB_NAME',
+  DB_USER = 'DB_USER',
+  DB_PASSWORD = 'DB_PASSWORD',
+  NODE_ENV = 'NODE_ENV',
 }
