@@ -9,4 +9,8 @@ export class UserService {
   async createUser(userInformation: UserDto) {
     return await this.userModel.query().insert(userInformation).returning('*');
   }
+
+  async fetchAll() {
+    return await this.userModel.query().returning('*');
+  }
 }

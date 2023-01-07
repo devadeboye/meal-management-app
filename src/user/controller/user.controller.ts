@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { JoiObjectValidationPipe } from 'src/utils/pipes/validation.pipe';
 import { UserDto } from '../dto/user.dto';
 import { UserService } from '../service/user.service';
@@ -14,5 +14,10 @@ export class UserController {
     userInformation: UserDto,
   ) {
     return this.userService.createUser(userInformation);
+  }
+
+  @Get('')
+  fetchAll() {
+    return this.userService.fetchAll();
   }
 }
