@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ObjectionModule } from '@willsoto/nestjs-objection';
-import { UserController } from './controller/user.controller';
-import { User } from './model/user.model';
-import { UserService } from './service/user.service';
+import { UserController } from './controllers/user.controller';
+import { User } from './models/user.model';
+import { UserService } from './services/user.service';
 
 @Module({
   providers: [UserService],

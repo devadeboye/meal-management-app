@@ -6,8 +6,8 @@ import { envConfigValidator } from 'src/config/config.validator';
 import { EnvConfigEnum } from 'src/config/env.enum';
 import { BaseModel } from '../../src/database/models/base.model';
 import { UserModule } from 'src/user/user.module';
-import { AppController } from './controller/app.controller';
-import { AppService } from './service/app.service';
+import { AppController } from './controllers/app.controller';
+import { AppService } from './services/app.service';
 
 @Module({
   imports: [
