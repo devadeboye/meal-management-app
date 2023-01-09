@@ -4,6 +4,8 @@ import { RoleEnum } from 'src/utils/enums/role.enum';
 export class User extends BaseModel {
   username: string;
   role: RoleEnum;
+  password: string;
+  salt: string;
 
   static tableName = 'users';
 

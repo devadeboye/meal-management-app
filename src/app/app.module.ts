@@ -1,4 +1,10 @@
-import { Logger, Module } from '@nestjs/common';
+import {
+  Logger,
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ObjectionModule } from '@willsoto/nestjs-objection';
 import { knexSnakeCaseMappers } from 'objection';
@@ -11,6 +17,8 @@ import { AppService } from './services/app.service';
 import { BrandModule } from 'src/brand/brand.module';
 import { AddonCategoryModule } from 'src/addon-category/addon-category.module';
 import { AddonModule } from 'src/addon/addon.module';
+import { TokenMiddleware } from 'src/utils/middlewares/token.middleware';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
@@ -56,9 +64,23 @@ import { AddonModule } from 'src/addon/addon.module';
     BrandModule,
     AddonCategoryModule,
     AddonModule,
+    AuthModule,
   ],
   exports: [ObjectionModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    return consumer
+      .apply(TokenMiddleware)
+      .exclude({
+        path: 'login',
+        method: RequestMethod.POST,
+      })
+      .forRoutes({
+        path: '*',
+        method: RequestMethod.ALL,
+      });
+  }
+}

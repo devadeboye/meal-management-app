@@ -2,7 +2,7 @@ import { Knex } from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('brands', function (table) {
-    table.increments('id');
+    table.increments('id').primary();
     table.string('name').notNullable();
     table.timestamps({ defaultToNow: true, useTimestamps: true });
   });

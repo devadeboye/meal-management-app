@@ -1,4 +1,6 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { AllowedRole } from 'src/utils/decorators/allowedPermissions.decorator';
+import { RoleEnum } from 'src/utils/enums/role.enum';
 import { JoiObjectValidationPipe } from 'src/utils/pipes/validation.pipe';
 import {
   AddonCategoryDto,
@@ -13,6 +15,7 @@ export class AddonCategoryController {
   constructor(private readonly addonCategoryService: AddonCategoryService) {}
 
   @Post('add')
+  @AllowedRole(RoleEnum.ADMIN)
   createCategory(
     @Body(
       new JoiObjectValidationPipe(createAddonCategoryValidator),

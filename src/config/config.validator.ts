@@ -13,4 +13,6 @@ export const envConfigValidator = Joi.object({
     .valid('production', 'development', 'test')
     .default('development')
     .required(),
+  TOKEN_SECRET: Joi.string().trim().required(),
+  JWT_LIFESPAN: Joi.string().trim().required(),
 });
