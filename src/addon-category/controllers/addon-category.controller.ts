@@ -4,6 +4,7 @@ import {
   AddonCategoryDto,
   AddonCategorySearchDto,
 } from '../dtos/addon-category.dto';
+import { CreateAddonCategoryPipe } from '../pipes/addon-category.pipe';
 import { AddonCategoryService } from '../services/addon-category.service';
 import { createAddonCategoryValidator } from '../validators/addon-category.validator';
 
@@ -12,8 +13,11 @@ export class AddonCategoryController {
   constructor(private readonly addonCategoryService: AddonCategoryService) {}
 
   @Post('add')
-  createBrand(
-    @Body(new JoiObjectValidationPipe(createAddonCategoryValidator))
+  createCategory(
+    @Body(
+      new JoiObjectValidationPipe(createAddonCategoryValidator),
+      CreateAddonCategoryPipe,
+    )
     addonCategory: AddonCategoryDto,
   ) {
     return this.addonCategoryService.createCategory(addonCategory);
