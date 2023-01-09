@@ -5,3 +5,5 @@ export class UserDto {
   username: string;
   role: RoleEnum;
 }
+
+export type UserSearchDto = Partial<UserDto>;

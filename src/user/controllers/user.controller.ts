@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { JoiObjectValidationPipe } from 'src/utils/pipes/validation.pipe';
 import { UserDto } from '../dtos/user.dto';
+import { UserPipe } from '../pipes/user.pipe';
 import { UserService } from '../services/user.service';
 import { createUserValidator } from '../validators/user.validator';
 
@@ -10,7 +11,7 @@ export class UserController {
 
   @Post('add')
   createUser(
-    @Body(new JoiObjectValidationPipe(createUserValidator))
+    @Body(new JoiObjectValidationPipe(createUserValidator), UserPipe)
     userInformation: UserDto,
   ) {
     return this.userService.createUser(userInformation);

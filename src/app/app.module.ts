@@ -8,6 +8,7 @@ import { BaseModel } from '../../src/database/models/base.model';
 import { UserModule } from 'src/user/user.module';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
+import { BrandModule } from 'src/brand/brand.module';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { AppService } from './services/app.service';
       },
     }),
     UserModule,
+    BrandModule,
   ],
   exports: [ObjectionModule],
   controllers: [AppController],

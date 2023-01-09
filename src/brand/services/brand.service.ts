@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { BrandDto } from '../dtos/brand.dto';
+import { BrandDto, BrandSearchDto } from '../dtos/brand.dto';
 import { Brand } from '../models/brand.model';
 
 @Injectable()
@@ -13,7 +13,8 @@ export class BrandService {
       .returning('*');
   }
 
-  async fetchAll() {
-    return await this.brandModel.query().returning('*');
+  async search(query: BrandSearchDto) {
+    // TODO add option for pagination
+    return await this.brandModel.query().where(query).orderBy('createdAt');
   }
 }
