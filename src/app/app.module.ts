@@ -9,6 +9,7 @@ import { UserModule } from 'src/user/user.module';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
 import { BrandModule } from 'src/brand/brand.module';
+import { AddonCategoryModule } from 'src/addon-category/addon-category.module';
 
 @Module({
   imports: [
@@ -52,6 +53,7 @@ import { BrandModule } from 'src/brand/brand.module';
     }),
     UserModule,
     BrandModule,
+    AddonCategoryModule,
   ],
   exports: [ObjectionModule],
   controllers: [AppController],

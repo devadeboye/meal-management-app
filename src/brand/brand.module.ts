@@ -7,10 +7,7 @@ import { BrandService } from './services/brand.service';
 @Module({
   controllers: [BrandController],
   providers: [BrandService],
-  imports: [
-    //Register your objection models so it can be provided when needed.
-    ObjectionModule.forFeature([Brand]),
-  ],
+  imports: [ObjectionModule.forFeature([Brand])],
   exports: [BrandService],
 })
 export class BrandModule {}
