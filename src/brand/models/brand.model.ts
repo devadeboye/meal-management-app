@@ -1,5 +1,5 @@
 import { Model } from 'objection';
-import { Addon } from 'src/addon/models/addon.model';
+// import { Addon } from 'src/addon/models/addon.model';
 import { BaseModel } from 'src/database/models/base.model';
 
 export class Brand extends BaseModel {
@@ -19,14 +19,17 @@ export class Brand extends BaseModel {
     };
   }
 
-  static relationMappings = {
-    brand: {
-      relation: Model.HasManyRelation,
-      modelClass: Addon,
-      join: {
-        from: 'brands.id',
-        to: 'addons.brand',
+  static relationMappings = () => {
+    const Addon = require('../../addon/models/addon.model');
+    return {
+      brand: {
+        relation: Model.HasManyRelation,
+        modelClass: Addon,
+        join: {
+          from: 'brands.id',
+          to: 'addons.brand',
+        },
       },
-    },
+    };
   };
 }

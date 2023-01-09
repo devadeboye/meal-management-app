@@ -20,7 +20,7 @@ export class AddonCategory extends BaseModel {
   }
 
   static relationMappings = {
-    brand: {
+    addon: {
       relation: Model.HasManyRelation,
       modelClass: Addon,
       join: {

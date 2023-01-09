@@ -10,6 +10,7 @@ import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
 import { BrandModule } from 'src/brand/brand.module';
 import { AddonCategoryModule } from 'src/addon-category/addon-category.module';
+import { AddonModule } from 'src/addon/addon.module';
 
 @Module({
   imports: [
@@ -54,6 +55,7 @@ import { AddonCategoryModule } from 'src/addon-category/addon-category.module';
     UserModule,
     BrandModule,
     AddonCategoryModule,
+    AddonModule,
   ],
   exports: [ObjectionModule],
   controllers: [AppController],
