@@ -35,7 +35,17 @@ The API should have the following endpoints:
   - name: The name of the meal addon (string, required)
   - description: A description of the meal addon (string, optional)
   - price: The price of the meal addon (number, required)
-  - category: The category of the meal addon (string, optional)
+  - category: The category of the meal addon (string, optional)  
+
+  ```json
+  // request body
+  {
+    "name": "Coke",
+    "description": "",
+    "price": 200,
+    "category": 4
+  }
+  ```
     <br>
     <br>
 
@@ -48,13 +58,28 @@ The API should have the following endpoints:
   - name: The updated name of the meal addon (string, optional)
   - description: The updated description of the meal addon (string, optional)
   - price: The updated price of the meal addon (number, optional)
-  - category: The updated category of the meal addon (string, optional)
+  - category: The updated category of the meal addon (string, optional)  
+  ```json
+  // request body
+  {
+    "name": "Coke",
+    "description": "",
+    "price": 200,
+    "category": 4
+  }
+  ```
     <br>
     <br>
 - **DELETE** `/brands/:brandId/addons/:addonId`: Delete a single meal addon by its ID for the specified brand.
 - **POST** `/brands/:brandId/addon-categories`: Create a new category for meal addons for the specified
   brand. The request body should contain the following field:
-  - name: The name of the category (string, required)
+  - name: The name of the category (string, required)  
+  ```json
+  // request body
+  {
+    "name": "Drink"
+  }
+  ```
 
 ## Installation
 
@@ -70,6 +95,13 @@ npx knex migrate:latest
 
 # seed default data
 npx knex seed:run
+```
+Note: credentials for default admin  
+```json
+{
+  "username": "devadeboye",
+  "password": "Devadeboye2@"
+}
 ```
 
 ## Running the app
