@@ -10,8 +10,19 @@ export class AddonService {
     return await this.addonModel.query().insert(addon).returning('*');
   }
 
+  async updateAddon(addon: AddonDto) {
+    return await this.addonModel.query().update(addon).returning('*');
+  }
+
+  async deleteAddon(brand: number, id: number) {
+    return await this.addonModel
+      .query()
+      .delete()
+      .where({ brand, id })
+      .returning('*');
+  }
+
   async search(query: AddonSearchDto) {
     return await this.addonModel.query().where(query).orderBy('createdAt');
   }
 }
-// TODO PartialModelObject;

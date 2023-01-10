@@ -6,8 +6,8 @@ export class AddonDto {
   name: string;
   description: string;
   price: number;
-  category: AddonCategory;
-  brand: Brand;
+  category: number;
+  brand: number;
 }
 
 export type AddonSearchDto = Partial<AddonDto>;

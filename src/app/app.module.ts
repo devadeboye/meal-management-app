@@ -15,8 +15,6 @@ import { UserModule } from 'src/user/user.module';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
 import { BrandModule } from 'src/brand/brand.module';
-import { AddonCategoryModule } from 'src/addon-category/addon-category.module';
-import { AddonModule } from 'src/addon/addon.module';
 import { TokenMiddleware } from 'src/utils/middlewares/token.middleware';
 import { AuthModule } from 'src/auth/auth.module';
 
@@ -62,8 +60,6 @@ import { AuthModule } from 'src/auth/auth.module';
     }),
     UserModule,
     BrandModule,
-    AddonCategoryModule,
-    AddonModule,
     AuthModule,
   ],
   exports: [ObjectionModule],
